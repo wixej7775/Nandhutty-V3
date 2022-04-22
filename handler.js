@@ -391,7 +391,7 @@ module.exports = {
             let groupMetadata = await this.groupMetadata(jid)
             for (let user of participants) {
               // let pp = './src/avatar_contact.png'
-              let pp = 'https://telegra.ph/file/fd4230902e75d397d8667.jpg'
+              let pp = 'https://telegra.ph/file/d8e2099ef7387601aace6.jpg'
               try {
                 pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
               } catch (e) {
@@ -399,7 +399,7 @@ module.exports = {
                 text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
                   (chat.sBye || this.bye || conn.bye || 'See you later, @user!')).replace(/@user/g, '@' + user.split`@`[0])
                 let wel = `https://hardianto-chan.herokuapp.com/api/welcome4?profile=${pp}&name=${encodeURIComponent(this.getName(user))}`
-                let lea = `https://hardianto-chan.herokuapp.com/api/goodbye3?profile=${pp}&name=${encodeURIComponent(this.getName(user))}&bg=https://telegra.ph/file/c996b407dbb9af2308487.jpg&namegb=${encodeURIComponent(this.getName(jid))}&member=${encodeURIComponent(groupMetadata.participants.length)}`
+                let lea = `https://hardianto-chan.herokuapp.com/api/goodbye3?profile=${pp}&name=${encodeURIComponent(this.getName(user))}&bg=https://telegra.ph/file/d8e2099ef7387601aace6.jpg&namegb=${encodeURIComponent(this.getName(jid))}&member=${encodeURIComponent(groupMetadata.participants.length)}`
                 this.sendFile(jid, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, {
                   thumbnail: await (await fetch(action === 'add' ? wel : lea)).buffer(),
                   contextInfo: {
@@ -470,15 +470,16 @@ type *.on delete* to turn off this message
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'This command can only be used by _*Bot Owner✅*_',
-    owner: 'This command can only be used by _*Bot Owner✅*_',
-    mods: 'This command can only be used by _*Moderator✅*_',
-    premium: 'This command is only for _*Premium users✅*_',
-    group: 'This command can only be used in groups✅',
-    private: 'This command can only be used in Private Chat✅',
-    admin: 'This command is only for *Admin* in the group✅',
-    botAdmin: 'Make bot an *Admin* to use this command✅',
+    rowner: 'This command can only be used by _*Bot Owner✅ https://youtube.com/c/LacinEke*_',
+    owner: 'This command can only be used by _*Bot Owner✅ https://youtube.com/c/LacinEke*_',
+    mods: 'This command can only be used by _*Moderator✅ https://youtube.com/c/LacinEke*_',
+    premium: 'This command is only for _*Premium users✅ https://youtube.com/c/LacinEke*_',
+    group: 'This command can only be used in groups✅ https://youtube.com/c/LacinEke',
+    private: 'This command can only be used in Private Chat✅ https://youtube.com/c/LacinEke',
+    admin: 'This command is only for *Admin* in the group✅ https://youtube.com/c/LacinEke',
+    botAdmin: 'Make bot an *Admin* to use this command✅ https://youtube.com/c/LacinEke',
     unreg: 'Please register to use this feature by typing:\n\n*#register name.age*\n\nEXAMPLE: *#register Wizard.18*',
+    youtube: 'Subscribe Please https://youtube.com/c/LacinEke subscribe please!'
     nsfw: 'NSFW is not active'
   }[type]
   if (msg) return m.reply(msg)
